@@ -1,0 +1,205 @@
+\documentclass[8pt]{article}
+
+\usepackage{extsizes}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[top=30mm,bottom=20mm]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{bookman}
+\usepackage{fontawesome}
+\usepackage{multicol}
+
+\newcommand{\cvHead}{
+  \begin{center}
+    \Huge
+    Markus Pawellek \\
+    \small
+    \faHome{} Arvid-Harnack-Straße 12, 07743 Jena, Deutschland \\
+    \faMobile{} +49 173 7262913 $\cdot$ \faEnvelopeO{} markuspawellek@gmail.com $\cdot$ \faGithub{} lyrahgames \\
+    Geboren am 7.~Mai~1995 in Meiningen, Deutschland
+  \end{center}
+  \bigskip
+}
+
+\newcommand{\cvSection}[1]{
+  {\Large \textbf{#1}}\\
+  \rule{\linewidth}{1pt}\\
+  \par
+  % \bigskip
+}
+
+\newcommand{\cvEducationHeading}[2]{%
+  \textbf{#1} \hfill \textit{\footnotesize #2} \\[1em]
+  % \rule{\textwidth}{0.8pt}
+}
+
+\newenvironment{cvEducationItem}[2]{
+  \begin{minipage}[t]{\textwidth}
+  \begin{minipage}[t]{0.1\textwidth}
+    \raggedleft
+    \small
+    #1
+  \end{minipage}
+  \quad
+  % \vline width 1pt
+  \vrule
+  % \rule{1pt}{\baselineskip}
+  \quad
+  \begin{minipage}[t]{0.8\textwidth}
+    \textsc{\small #2}
+    \begin{itemize}
+      \itemsep0pt
+      \footnotesize
+}{
+    \end{itemize}
+  \end{minipage}
+  \end{minipage}\\[1em]
+}
+
+\newenvironment{cvSkillsItem}[1]{
+  \begin{minipage}[t]{0.33\textwidth}
+  \cvEducationHeading{#1}{}
+  \renewcommand{\item}[2]{%
+    \begin{minipage}[t]{0.25\textwidth}
+      % \raggedleft
+      \small
+      ##1
+    \end{minipage}
+    \hspace{0.05\textwidth}
+    \vrule
+    \hspace{0.05\textwidth}
+    \begin{minipage}[t]{0.55\textwidth}
+      \small
+      ##2
+    \end{minipage}\\
+  }
+}{
+  \end{minipage}
+}
+
+\setlength{\parindent}{0mm}
+
+\begin{document}
+  \sffamily
+  \cvHead
+
+  \cvSection{Ausbildung}
+  \cvEducationHeading{Goetheschule Ilmenau Staatliches Gymnasium mit mat.-nat. Spezialklassen}{Ilmenau, Deutschland}
+  \begin{cvEducationItem}{Sep. 2009 - Jun. 2013}{Allgemeine Hochschulreife}
+    \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}2$
+    \item Besuch der mat.-nat. Spezialklassen mit sehr gutem Erfolg in den erweiterten Fächern Mathematik, Physik und Informatik
+    \item Zwei Facharbeiten in den Bereichen Compilerbau und Raytracing
+  \end{cvEducationItem}
+
+  \cvEducationHeading{Technische Universität Ilmenau}{Ilmenau, Deutschland}
+  \begin{cvEducationItem}{Okt. 2011 - Sep. 2012}{Frühstudium}
+    \item Abschluss des Moduls Experimentalphysik I durch eine mündliche Prüfung mit der Note $1{,}0$
+  \end{cvEducationItem}
+
+  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{Jena, Deutschland}
+  \begin{cvEducationItem}{Okt. 2013 - Sep. 2017}{B.Sc. in Physik}
+    \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}7$
+    \item Abschlussarbeit mit dem Title Generierung von Irradiance Maps über das Präprozessing der diffusen Lichtverteilung einer Szene, um deren Darstellung in Echtzeit mithilfe des Raytracing-Algorithmus zu ermöglichen
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Okt. 2015 - Sep. 2018}{B.Sc. Mathematik}
+    \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}4$
+    \item Spezialisierung auf Theoretische Informatik
+    \item Abschlussarbeit mit dem Title Implementierung einer Finite-Elemente-Methode auf der Grafikkarte über die numerische Simulation von Lösungen der idealen Wellengleichungen auf zweidimensionalen Untermannigfaltigkeiten mithilfe der Finite-Elemente-Methode
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{seit Okt.~2017}{M.Sc. Physik}
+    \item Spezialisierung auf Quanten- und Gravitationstheorie
+    \item Abschlussarbeit mit dem Titel Design and Implementation of Pseudo Random Number Generators for Simulation in Physics
+  \end{cvEducationItem}
+
+  \cvSection{Fähigkeiten}
+
+  % \begin{multicols}{2}
+  % \begin{minipage}[t]{0.45\textwidth}
+  \cvEducationHeading{Programmiersprachen}{}
+  \begin{cvEducationItem}{C/C++}{Fortgeschrittene Kenntnisse}
+    \item Verwendung moderner Standards C++11, C++14, C++17
+    \item Experimente mit C++20
+    \item Verwendung von Bibliotheken: Boost, Doctest, Qt, SFML, OpenGL
+    \item Verwendung moderner Build-Toolchain: Git, CMake, build2, meson
+    \item Parallelisierung: Threads, OpenMP, MPI, CUDA, Intel SIMD Intrinsics
+    \item Compiler: GCC, Clang, Intel
+    \item Build Systeme: CMake, Make, qmake, Meson, build2
+    \item VCS: Git
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{CMake}{Fortgeschrittene Kenntnisse}
+    \item Verwendung eines konsistenten modernen Standards
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Python}{Grundlegende Kenntnisse}
+    \item Verwendung von Python3
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{LaTeX}{Praktische Kenntnisse}
+    \item
+  \end{cvEducationItem}
+  % \end{minipage}
+  % \hfill
+  % \begin{minipage}[t]{0.45\textwidth}
+  % \begin{minipage}[t]{\textwidth}
+  \cvEducationHeading{Sprachen}{}
+  \begin{cvEducationItem}{Deutsch}{Muttersprache}
+    \item
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Englisch}{Flüssiger Sprachgebrauch und praktische Erfahrung}
+    \item
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Französisch}{Grundlegende Kenntnisse}
+    \item
+  \end{cvEducationItem}
+  % \end{minipage}
+
+  % \begin{minipage}[t]{\textwidth}
+  \cvEducationHeading{Sonstiges}{}
+  \begin{cvEducationItem}{DevOps}{Praktische Kenntnisse}
+    \item CircleCI
+    \item Docker
+    \item Codecov
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Betriebssysteme}{}
+    \item Arch Linux, Ubuntu und weitere Distributionen
+    \item Windows 7, Windows 10
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Web Entwicklung}{}
+    \item Jekyll
+    \item HTML5
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Weiteres}{}
+    \item Gnuplot
+    \item Geogebra
+    \item Blender
+  \end{cvEducationItem}
+  % \end{minipage}
+  % \end{minipage}
+  % \end{multicols}
+
+  \cvSection{Praxiserfahrung}
+  \cvEducationHeading{Fraunhofer ITWM}{Kaiserslautern, Deutschland}
+  \begin{cvEducationItem}{Sep. 2012}{Praktikum}
+    \item Zweiwöchiges Praktikum in der Abteilung Competence Center High Performance Computing (CC HPC)
+    \item Implementierung einer Raytracing-Engine und LBVH
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Okt.~2013 - Jun.~2017}{Wissenschaftliche Hilfskraft}
+    \item Arbeit in der Abteilung Competence Center High Performance Computing (CC HPC)
+    \item Erlangung von Fachkenntnis und Erfahrung in den Bereichen Programmoptimierung in C++ und C, Compilerbau, Computerhardware einschließlich Vektorprozessoren und Grafikkarten, Parallel Computing, Computergrafik einschließlich physikalisch-basiertes Rendering
+    \item Implementierung von echtzeitfähigen Raytracing-Algorithmen auf der CPU und GPU unter Verwendung von State-of-the-Art-Verfahren und professioneller Werkzeuge wie OpenGL, Qt und CUDA
+    \item Unterstützung bei der Entwicklung eines statistisch-basierten Analysewerkzeuges für seismische Daten durch Implementierung von Histogrammen, Kerndichteschätzern und Farbtabellen
+    \item Implementierung von Schnittstellen zur Verarbeitung des Wavefront OBJ Dateiformates
+    \item Aufbereitung und Nachbearbeitung diverser Szenenmodelle mithilfe von Blender
+  \end{cvEducationItem}
+
+  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{Jena, Deutschland}
+  \begin{cvEducationItem}{Okt.~2017 - Apr.~2018}{Wissenschaftliche Hilfskraft}
+    \item Übungsleiter und -korrekteur im Fach Mathematische Methoden der Physik I
+    \item Erstellen der Aufgabenzettel und Musterlösungen mithilfe von Latex
+    \item Entwicklung einer sich automatisch kompilierenden Latex-basierten Aufgabendatenbank für den Lehrstuhl
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Sep.~2018}{Tutor}
+    \item zehntägiger Einführungskurs in die Programmiersprache C++ auf der Basis moderner Standards und Werkzeuge
+  \end{cvEducationItem}
+
+  \cvSection{Weitere Interessen und Aktivitäten}
+\end{document}
