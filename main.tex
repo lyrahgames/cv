@@ -4,78 +4,156 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[top=30mm,bottom=20mm]{geometry}
+\usepackage[top=20mm,bottom=25mm,left=25mm,right=25mm]{geometry}
 \usepackage[ngerman]{babel}
 \usepackage{bookman}
+% \usepackage{times}
 \usepackage{fontawesome}
 \usepackage{multicol}
+\usepackage{tikz}
+\usepackage[skins]{tcolorbox}
+\usepackage{fancyhdr}
+% \usepackage[dvipsnames]{xcolor}
+\usepackage{enumitem}
+
+\fancypagestyle{cvStyle}{
+  \fancyhf{}
+  \fancyfoot[L]{\bigskip\sffamily\bfseries\color{cvColor}\footnotesize\textsc{\today}}
+  \fancyfoot[R]{\bigskip\sffamily\bfseries\color{cvColor}\footnotesize\textsc{Markus Pawellek}\quad$\cdot$\quad\textsc{Curriculum Vitae}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+% \usepackage{fontspec}
+% \setmainfont[Ligatures=TeX]{Georgia}
+% \setsansfont[Ligatures=TeX]{Arial}
+
+\linespread{1.2}
+\pagestyle{cvStyle}
+
+\definecolor{cvColor}{rgb}{0.3, 0.3, 0.4}
+\definecolor{cvBackgroundColor}{rgb}{0.93, 0.93, 1.0}
 
 \newcommand{\cvHead}{
+  \begin{minipage}[c]{0.7\textwidth}
   \begin{center}
     \Huge
-    Markus Pawellek \\
+    Markus \textbf{\color{cvColor}Pawellek} \\[0.2em]
     \small
-    \faHome{} Arvid-Harnack-Straße 12, 07743 Jena, Deutschland \\
-    \faMobile{} +49 173 7262913 $\cdot$ \faEnvelopeO{} markuspawellek@gmail.com $\cdot$ \faGithub{} lyrahgames \\
-    Geboren am 7.~Mai~1995 in Meiningen, Deutschland
+    {\color{cvColor}
+    \parbox{0.3\linewidth}{\rule{\linewidth}{0.5pt}}%
+    ~~%
+    {\normalfont\textit{Curriculum Vitae}}%
+    ~~%
+    \parbox{0.3\linewidth}{\rule{\linewidth}{0.5pt}}} \\[1em]
+    \begin{minipage}[t]{0.4\linewidth}
+      \raggedleft
+      Arvid-Harnack-Straße 12 \\
+      07743 Jena \\
+      Deutschland
+    \end{minipage}
+    \quad
+    \vrule
+    \quad
+    \begin{minipage}[t]{0.4\linewidth}
+      \parbox{1.5em}{\centering\faMobile{}} +49 173 7262913 \\
+      \parbox{1.5em}{\centering\faEnvelopeO{}} markuspawellek@gmail.com \\
+      \parbox{1.5em}{\centering\faGithub{}} lyrahgames
+    \end{minipage}\\[2.5em]
+    % \small
+    % \faHome{} Arvid-Harnack-Straße 12, 07743 Jena, Deutschland \\
+    % \faMobile{} +49 173 7262913 $\cdot$ \faEnvelopeO{} markuspawellek@gmail.com $\cdot$ \faGithub{} lyrahgames \\
+    {\color{cvColor}\textsc{Geboren am 7.~Mai~1995 in Meiningen, Deutschland}}
   \end{center}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.28\textwidth}
+    \begin{tikzpicture}%
+      \node[circle,draw=darkgray,line width=0.3mm, inner sep=1.3cm, fill overzoom image={photo.png}] () {};
+    \end{tikzpicture}
+  \end{minipage}
+  \par
   \bigskip
 }
 
 \newcommand{\cvSection}[1]{
-  {\Large \textbf{#1}}\\
-  \rule{\linewidth}{1pt}\\
+  \medskip
+  {\Large \color{cvColor} \textbf{#1}}\\
+  \parbox{\linewidth}{\rule{\linewidth}{1pt}}
   \par
   % \bigskip
 }
 
 \newcommand{\cvEducationHeading}[2]{%
-  \textbf{#1} \hfill \textit{\footnotesize #2} \\[1em]
+  {\centering\colorbox{cvBackgroundColor}{\parbox{0.98\linewidth}{\textbf{#1} \hfill \textit{\footnotesize #2}}}} \par
   % \rule{\textwidth}{0.8pt}
 }
 
-\newenvironment{cvEducationItem}[2]{
-  \begin{minipage}[t]{\textwidth}
-  \begin{minipage}[t]{0.1\textwidth}
-    \raggedleft
-    \small
+\newcommand{\cvItem}[2]{%
+  \begin{minipage}[t]{0.15\linewidth}
+    \raggedleft%
     #1
+  \end{minipage}
+  \hspace{0.02\linewidth}
+  \vrule
+  \hspace{0.02\linewidth}
+  \begin{minipage}[t]{0.75\linewidth}
+    #2
+  \end{minipage}\newline
+}
+
+\newenvironment{cvEducationItem}[2]{
+  \medskip
+  \par
+  % \begin{minipage}[t]{\linewidth}
+  \begin{minipage}[c]{0.15\linewidth}
+    \raggedleft
+    \footnotesize
+    \textit{#1}
   \end{minipage}
   \quad
   % \vline width 1pt
   \vrule
   % \rule{1pt}{\baselineskip}
   \quad
-  \begin{minipage}[t]{0.8\textwidth}
-    \textsc{\small #2}
-    \begin{itemize}
-      \itemsep0pt
-      \footnotesize
+  \begin{minipage}[t]{0.7\linewidth}
+    \textsc{\color{cvColor} \textbf{#2}}
+    \footnotesize
+    % \renewcommand{\item}{\newline $\bullet$ \quad}
+    \begin{itemize}[itemsep=-1mm, leftmargin=3mm]
 }{
     \end{itemize}
   \end{minipage}
-  \end{minipage}\\[1em]
+  \\[0.5em]
+  % \par
+  % \end{minipage}\\[1em]
 }
 
 \newenvironment{cvSkillsItem}[1]{
-  \begin{minipage}[t]{0.33\textwidth}
   \cvEducationHeading{#1}{}
+  % \begin{multicols}{2}
   \renewcommand{\item}[2]{%
-    \begin{minipage}[t]{0.25\textwidth}
-      % \raggedleft
+  % \begin{minipage}[t]{0.3\textwidth}
+    \begin{minipage}[t]{0.1\textwidth}
+      \raggedleft
       \small
       ##1
     \end{minipage}
-    \hspace{0.05\textwidth}
+    % \hspace{0.05\textwidth}
+    \quad
     \vrule
-    \hspace{0.05\textwidth}
-    \begin{minipage}[t]{0.55\textwidth}
-      \small
+    % \hspace{0.05\textwidth}
+    \quad
+    \begin{minipage}[t]{0.35\textwidth}
+      \footnotesize
       ##2
-    \end{minipage}\\
+    \end{minipage}
+  % \end{minipage}
+    % \hfill
+    \\
   }
 }{
-  \end{minipage}
+  % \end{multicols}
 }
 
 \setlength{\parindent}{0mm}
@@ -85,25 +163,26 @@
   \cvHead
 
   \cvSection{Ausbildung}
-  \cvEducationHeading{Goetheschule Ilmenau Staatliches Gymnasium mit mat.-nat. Spezialklassen}{Ilmenau, Deutschland}
-  \begin{cvEducationItem}{Sep. 2009 - Jun. 2013}{Allgemeine Hochschulreife}
-    \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}2$
+  \cvEducationHeading{Goetheschule Ilmenau Staatliches Gymnasium mit mat.-nat. Spezialklassen}{}
+  \begin{cvEducationItem}{Sep. 2009 - Jun. 2013}{Allgemeine Hochschulreife (1,2)}
     \item Besuch der mat.-nat. Spezialklassen mit sehr gutem Erfolg in den erweiterten Fächern Mathematik, Physik und Informatik
     \item Zwei Facharbeiten in den Bereichen Compilerbau und Raytracing
+    \item Preisträgen von Mathematik- und Physikolympiaden
+    \item Besuch der Elektronik AG
   \end{cvEducationItem}
 
-  \cvEducationHeading{Technische Universität Ilmenau}{Ilmenau, Deutschland}
+  \cvEducationHeading{Technische Universität Ilmenau}{}
   \begin{cvEducationItem}{Okt. 2011 - Sep. 2012}{Frühstudium}
-    \item Abschluss des Moduls Experimentalphysik I durch eine mündliche Prüfung mit der Note $1{,}0$
+    \item Abschluss des Moduls Experimentalphysik durch eine mündliche Prüfung (1,0)
   \end{cvEducationItem}
 
-  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{Jena, Deutschland}
-  \begin{cvEducationItem}{Okt. 2013 - Sep. 2017}{B.Sc. in Physik}
-    \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}7$
+  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{}
+  \begin{cvEducationItem}{Okt. 2013 - Sep. 2017}{B.Sc. Physik (1,7)}
+    % \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}7$
     \item Abschlussarbeit mit dem Title Generierung von Irradiance Maps über das Präprozessing der diffusen Lichtverteilung einer Szene, um deren Darstellung in Echtzeit mithilfe des Raytracing-Algorithmus zu ermöglichen
   \end{cvEducationItem}
-  \begin{cvEducationItem}{Okt. 2015 - Sep. 2018}{B.Sc. Mathematik}
-    \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}4$
+  \begin{cvEducationItem}{Okt. 2015 - Sep. 2018}{B.Sc. Mathematik (1,4)}
+    % \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}4$
     \item Spezialisierung auf Theoretische Informatik
     \item Abschlussarbeit mit dem Title Implementierung einer Finite-Elemente-Methode auf der Grafikkarte über die numerische Simulation von Lösungen der idealen Wellengleichungen auf zweidimensionalen Untermannigfaltigkeiten mithilfe der Finite-Elemente-Methode
   \end{cvEducationItem}
@@ -113,47 +192,96 @@
   \end{cvEducationItem}
 
   \cvSection{Fähigkeiten}
+  % \begin{multicols}{2}
+  % \cvItem{%
+  %   Test with some more tests
+  % }{%
+  %   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  %   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  %   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  %   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  %   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  %   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  % }
+  % \cvItem{%
+  %   Test with some more tests
+  % }{%
+  %   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  %   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  %   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  %   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  %   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  %   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  % }
+  % \end{multicols}
+
+  % \begin{cvSkillsItem}{Sprachen}
+  %   \item{Deutsch}{Muttersprache}
+  %   \item{English}{Fließend in Wort und Schrift --- \textit{Upper Intermediate}}
+  %   \item{Französisch}{Grundkenntnisse --- \textit{Beginner}}
+  % \end{cvSkillsItem}
+  % \textbf{Sprachen}\\
+  % \cvItem{\small Deutsch}{\small Muttersprache}
+  % \cvItem{\small Englisch}{\small Fließend in Wort und Schrift \\ --- \textit{Upper Intermediate}}
+  % \cvItem{\small Französisch}{\small Grundkenntnisse --- \textit{Beginner}}
+
+  \cvEducationHeading{Sprachen}{}
+  \begin{multicols}{2}
+  \begin{cvEducationItem}{Deutsch}{Muttersprache}
+    \item
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Englisch}{Fließend in Wort und Schrift}
+    \item Upper Intermediate
+  \end{cvEducationItem}
+  \begin{cvEducationItem}{Französisch}{Grundkenntnisse}
+    \item Beginner
+  \end{cvEducationItem}
+  \end{multicols}
 
   % \begin{multicols}{2}
   % \begin{minipage}[t]{0.45\textwidth}
   \cvEducationHeading{Programmiersprachen}{}
+  % \textbf{Programmiersprachen}
+  \begin{multicols}{2}
   \begin{cvEducationItem}{C/C++}{Fortgeschrittene Kenntnisse}
-    \item Verwendung moderner Standards C++11, C++14, C++17
-    \item Experimente mit C++20
-    \item Verwendung von Bibliotheken: Boost, Doctest, Qt, SFML, OpenGL
-    \item Verwendung moderner Build-Toolchain: Git, CMake, build2, meson
-    \item Parallelisierung: Threads, OpenMP, MPI, CUDA, Intel SIMD Intrinsics
+    \item Standards: C++98, C++11, C++14, C++17, C++20
+    \item Bibliotheken: Boost, Doctest, Qt, SFML, OpenGL
+    \item Parallelisierung: Threads, OpenMP, MPI, CUDA, SIMD Intrinsics
     \item Compiler: GCC, Clang, Intel
     \item Build Systeme: CMake, Make, qmake, Meson, build2
-    \item VCS: Git
+    \item Support: Git, Valgrind, clang-tidy, clang-format
   \end{cvEducationItem}
   \begin{cvEducationItem}{CMake}{Fortgeschrittene Kenntnisse}
     \item Verwendung eines konsistenten modernen Standards
   \end{cvEducationItem}
   \begin{cvEducationItem}{Python}{Grundlegende Kenntnisse}
-    \item Verwendung von Python3
+    \item Erfahrung beim Verstehen und Interagieren mit existierendem Code
+    \item Erfahrung mit C-Python-Interoperabilität
   \end{cvEducationItem}
-  \begin{cvEducationItem}{LaTeX}{Praktische Kenntnisse}
-    \item
+  \begin{cvEducationItem}{LaTeX}{Fortgeschrittene Kenntnisse}
+    \item Fließend beim Schreiben, Verstehen und Interagieren
+    \item Entwicklung eigener Pakete
   \end{cvEducationItem}
+  \end{multicols}
   % \end{minipage}
   % \hfill
   % \begin{minipage}[t]{0.45\textwidth}
   % \begin{minipage}[t]{\textwidth}
-  \cvEducationHeading{Sprachen}{}
-  \begin{cvEducationItem}{Deutsch}{Muttersprache}
-    \item
-  \end{cvEducationItem}
-  \begin{cvEducationItem}{Englisch}{Flüssiger Sprachgebrauch und praktische Erfahrung}
-    \item
-  \end{cvEducationItem}
-  \begin{cvEducationItem}{Französisch}{Grundlegende Kenntnisse}
-    \item
-  \end{cvEducationItem}
+  % \cvEducationHeading{Sprachen}{}
+
+  % \begin{cvEducationItem}{Englisch}{Flüssiger Sprachgebrauch und praktische Erfahrung}
+  %   \item
+  % \end{cvEducationItem}
+  % \begin{cvEducationItem}{Französisch}{Grundlegende Kenntnisse}
+  %   \item
+  % \end{cvEducationItem}
   % \end{minipage}
 
   % \begin{minipage}[t]{\textwidth}
+  \newpage
   \cvEducationHeading{Sonstiges}{}
+  % \textbf{Sonstiges}\\
+  \begin{multicols}{2}
   \begin{cvEducationItem}{DevOps}{Praktische Kenntnisse}
     \item CircleCI
     \item Docker
@@ -172,12 +300,13 @@
     \item Geogebra
     \item Blender
   \end{cvEducationItem}
+  \end{multicols}
   % \end{minipage}
   % \end{minipage}
   % \end{multicols}
 
   \cvSection{Praxiserfahrung}
-  \cvEducationHeading{Fraunhofer ITWM}{Kaiserslautern, Deutschland}
+  \cvEducationHeading{Fraunhofer ITWM Kaiserslautern}{}
   \begin{cvEducationItem}{Sep. 2012}{Praktikum}
     \item Zweiwöchiges Praktikum in der Abteilung Competence Center High Performance Computing (CC HPC)
     \item Implementierung einer Raytracing-Engine und LBVH
@@ -191,7 +320,7 @@
     \item Aufbereitung und Nachbearbeitung diverser Szenenmodelle mithilfe von Blender
   \end{cvEducationItem}
 
-  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{Jena, Deutschland}
+  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{}
   \begin{cvEducationItem}{Okt.~2017 - Apr.~2018}{Wissenschaftliche Hilfskraft}
     \item Übungsleiter und -korrekteur im Fach Mathematische Methoden der Physik I
     \item Erstellen der Aufgabenzettel und Musterlösungen mithilfe von Latex
@@ -199,6 +328,7 @@
   \end{cvEducationItem}
   \begin{cvEducationItem}{Sep.~2018}{Tutor}
     \item zehntägiger Einführungskurs in die Programmiersprache C++ auf der Basis moderner Standards und Werkzeuge
+    \item fünftägiger Einführungskurs in LaTeX
   \end{cvEducationItem}
 
   \cvSection{Weitere Interessen und Aktivitäten}
