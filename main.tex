@@ -74,7 +74,21 @@
   \sffamily%
   \color{cvColor}%
   \itshape%
+  % \scshape%
   % \bfseries%
+}
+\newcommand{\cvSectionStyle}{%
+  \normalfont%
+  \Large%
+  \color{cvColor}%
+  \bfseries%
+  \sffamily%
+}
+\newcommand{\cvSubsectionStyle}{%
+  \normalfont%
+  \sffamily%
+  \itshape%
+  \bfseries%
 }
 
 \fancypagestyle{cvPagestyle}{
@@ -140,17 +154,20 @@
   \bigskip%
 }
 
-\newcommand{\cvSection}[1]{
-  \medskip
-  {\Large \color{cvColor} \textbf{#1}}\\
-  \parbox{\linewidth}{\rule{\linewidth}{1pt}}
-  \par
-  % \bigskip
+\newcommand{\cvSection}[1]{%
+  \smallskip%
+  {%
+    \cvSectionStyle #1%
+  }\\[-0.5em]
+  \rule{\linewidth}{0.8pt}%
+  \par%
+  \smallskip%
 }
 
-\newcommand{\cvEducationHeading}[2]{%
-  {\centering\colorbox{cvBackgroundColor}{\parbox{0.98\linewidth}{\textbf{#1} \hfill \textit{\footnotesize #2}}}} \par
-  % \rule{\textwidth}{0.8pt}
+\newcommand{\cvSubsection}[1]{%
+  \begin{tcolorbox}[left=0pt, top=0pt, bottom=0pt, right=0pt, boxsep=5pt, arc=5pt, frame code={}, colback=cvBackgroundColor]
+    \cvSubsectionStyle #1%
+  \end{tcolorbox}
 }
 
 \newcommand{\cvItem}[2]{%
@@ -167,7 +184,7 @@
 }
 
 \newenvironment{cvEducationItem}[2]{
-  \medskip
+  % \medskip
   \par
   % \begin{minipage}[t]{\linewidth}
   \begin{minipage}[c]{0.15\linewidth}
@@ -227,7 +244,8 @@
   \cvHead
 
   \cvSection{Ausbildung}
-  \cvEducationHeading{Goetheschule Ilmenau Staatliches Gymnasium mit mat.-nat. Spezialklassen}{}
+  % \cvEducationHeading{Goetheschule Ilmenau Staatliches Gymnasium mit mat.-nat. Spezialklassen}{}
+  \cvSubsection{Goetheschule Ilmenau Staatliches Gymnasium mit mat.-nat. Spezialklassen}
   \begin{cvEducationItem}{Sep. 2009 - Jun. 2013}{Allgemeine Hochschulreife (1,2)}
     \item Besuch der mat.-nat. Spezialklassen mit sehr gutem Erfolg in den erweiterten Fächern Mathematik, Physik und Informatik
     \item Zwei Facharbeiten in den Bereichen Compilerbau und Raytracing
@@ -235,12 +253,14 @@
     \item Besuch der Elektronik AG
   \end{cvEducationItem}
 
-  \cvEducationHeading{Technische Universität Ilmenau}{}
+  % \cvEducationHeading{Technische Universität Ilmenau}{}
+  \cvSubsection{Technische Universität Ilmenau}
   \begin{cvEducationItem}{Okt. 2011 - Sep. 2012}{Frühstudium}
     \item Abschluss des Moduls Experimentalphysik durch eine mündliche Prüfung (1,0)
   \end{cvEducationItem}
 
-  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{}
+  % \cvEducationHeading{Friedrich-Schiller-Universität Jena}{}
+  \cvSubsection{Friedrich-Schiller-Universität Jena}
   \begin{cvEducationItem}{Okt. 2013 - Sep. 2017}{B.Sc. Physik (1,7)}
     % \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}7$
     \item Abschlussarbeit mit dem Title Generierung von Irradiance Maps über das Präprozessing der diffusen Lichtverteilung einer Szene, um deren Darstellung in Echtzeit mithilfe des Raytracing-Algorithmus zu ermöglichen
@@ -256,40 +276,8 @@
   \end{cvEducationItem}
 
   \cvSection{Fähigkeiten}
-  % \begin{multicols}{2}
-  % \cvItem{%
-  %   Test with some more tests
-  % }{%
-  %   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  %   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  %   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  %   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  %   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  %   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  % }
-  % \cvItem{%
-  %   Test with some more tests
-  % }{%
-  %   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  %   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-  %   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  %   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-  %   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-  %   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  % }
-  % \end{multicols}
-
-  % \begin{cvSkillsItem}{Sprachen}
-  %   \item{Deutsch}{Muttersprache}
-  %   \item{English}{Fließend in Wort und Schrift --- \textit{Upper Intermediate}}
-  %   \item{Französisch}{Grundkenntnisse --- \textit{Beginner}}
-  % \end{cvSkillsItem}
-  % \textbf{Sprachen}\\
-  % \cvItem{\small Deutsch}{\small Muttersprache}
-  % \cvItem{\small Englisch}{\small Fließend in Wort und Schrift \\ --- \textit{Upper Intermediate}}
-  % \cvItem{\small Französisch}{\small Grundkenntnisse --- \textit{Beginner}}
-
-  \cvEducationHeading{Sprachen}{}
+  \cvSubsection{Sprachen}
+  \vspace{-1.8em}
   \begin{multicols}{2}
   \begin{cvEducationItem}{Deutsch}{Muttersprache}
     \item
@@ -301,11 +289,10 @@
   %   \item Beginner
   % \end{cvEducationItem}
   \end{multicols}
+  \vspace{-1.8em}
 
-  % \begin{multicols}{2}
-  % \begin{minipage}[t]{0.45\textwidth}
-  \cvEducationHeading{Programmiersprachen}{}
-  % \textbf{Programmiersprachen}
+  \cvSubsection{Programmiersprachen}
+  \vspace{-1.8em}
   \begin{multicols}{2}
   \begin{cvEducationItem}{C/C++}{Fortgeschrittene Kenntnisse}
     \item Standards: C++98, C++11, C++14, C++17, C++20
@@ -327,24 +314,9 @@
     \item Entwicklung eigener Pakete
   \end{cvEducationItem}
   \end{multicols}
-  % \end{minipage}
-  % \hfill
-  % \begin{minipage}[t]{0.45\textwidth}
-  % \begin{minipage}[t]{\textwidth}
-  % \cvEducationHeading{Sprachen}{}
 
-  % \begin{cvEducationItem}{Englisch}{Flüssiger Sprachgebrauch und praktische Erfahrung}
-  %   \item
-  % \end{cvEducationItem}
-  % \begin{cvEducationItem}{Französisch}{Grundlegende Kenntnisse}
-  %   \item
-  % \end{cvEducationItem}
-  % \end{minipage}
-
-  % \begin{minipage}[t]{\textwidth}
-  \newpage
-  \cvEducationHeading{Sonstiges}{}
-  % \textbf{Sonstiges}\\
+  \cvSubsection{Sonstiges}
+  \vspace{-1.8em}
   \begin{multicols}{2}
   \begin{cvEducationItem}{DevOps}{Praktische Kenntnisse}
     \item CircleCI
@@ -365,12 +337,10 @@
     \item Blender
   \end{cvEducationItem}
   \end{multicols}
-  % \end{minipage}
-  % \end{minipage}
-  % \end{multicols}
+
 
   \cvSection{Praxiserfahrung}
-  \cvEducationHeading{Fraunhofer ITWM Kaiserslautern}{}
+  \cvSubsection{Fraunhofer ITWM Kaiserslautern}
   \begin{cvEducationItem}{Sep. 2012}{Praktikum}
     \item Zweiwöchiges Praktikum in der Abteilung Competence Center High Performance Computing (CC HPC)
     \item Implementierung einer Raytracing-Engine und LBVH
@@ -384,7 +354,7 @@
     \item Aufbereitung und Nachbearbeitung diverser Szenenmodelle mithilfe von Blender
   \end{cvEducationItem}
 
-  \cvEducationHeading{Friedrich-Schiller-Universität Jena}{}
+  \cvSubsection{Friedrich-Schiller-Universität Jena}
   \begin{cvEducationItem}{Okt.~2017 - Apr.~2018}{Wissenschaftliche Hilfskraft}
     \item Übungsleiter und -korrekteur im Fach Mathematische Methoden der Physik I
     \item Erstellen der Aufgabenzettel und Musterlösungen mithilfe von Latex
