@@ -4,8 +4,9 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[top=20mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\usepackage[top=15mm,bottom=25mm,left=25mm,right=25mm]{geometry}
 \usepackage[ngerman]{babel}
+% \usepackage{hyphenat}
 \usepackage{bookman}
 % \usepackage{times}
 \usepackage{fontawesome}
@@ -16,8 +17,11 @@
 % \usepackage[dvipsnames]{xcolor}
 \usepackage{enumitem}
 
-\definecolor{cvColor}{rgb}{0.3, 0.3, 0.4}
-\definecolor{cvBackgroundColor}{rgb}{0.93, 0.93, 1.0}
+\definecolor{cvColor}{rgb}{0.25, 0.25, 0.5}
+\definecolor{cvBackgroundColor}{rgb}{0.94, 0.97, 0.99}
+\definecolor{cvFooterColor}{rgb}{0.4, 0.4, 0.4}
+\definecolor{cvContentColor}{rgb}{0.3, 0.3, 0.3}
+\definecolor{cvSubsectionColor}{rgb}{0.15, 0.15, 0.15}
 
 \newcommand{\cvFirstName}{Markus}
 \newcommand{\cvLastName}{Pawellek}
@@ -35,7 +39,7 @@
   \normalfont%
   \sffamily%
   \bfseries%
-  \color{cvColor}%
+  \color{cvFooterColor}%
   \footnotesize%
   \scshape%
 }
@@ -62,6 +66,7 @@
   \normalfont%
   \small%
   \sffamily%
+  % \color{cvContentColor}
 }
 \newcommand{\cvHeadContactStyle}{%
   \normalfont%
@@ -72,7 +77,7 @@
   \normalfont%
   \small%
   \sffamily%
-  \color{cvColor}%
+  \color{cvContentColor}%
   \itshape%
   % \scshape%
   % \bfseries%
@@ -89,6 +94,7 @@
   \sffamily%
   \itshape%
   \bfseries%
+  \color{cvSubsectionColor}%
 }
 \newcommand{\cvTimeStyle}{%
   \normalfont%
@@ -115,9 +121,10 @@
   }
 }
 
-
 \linespread{1.2}
 \pagestyle{cvPagestyle}
+
+\newcommand{\cvQuote}[1]{\guillemotright{}#1\guillemotleft}
 
 \newcommand{\cvHead}{
   \begin{minipage}[c]{0.7\linewidth}
@@ -176,19 +183,6 @@
   \end{tcolorbox}
 }
 
-\newcommand{\cvItem}[2]{%
-  \begin{minipage}[t]{0.15\linewidth}
-    \raggedleft%
-    #1
-  \end{minipage}
-  \hspace{0.02\linewidth}
-  \vrule
-  \hspace{0.02\linewidth}
-  \begin{minipage}[t]{0.75\linewidth}
-    #2
-  \end{minipage}\newline
-}
-
 \newenvironment{cvItemize}{%
   \begin{itemize}[itemsep=0mm, leftmargin=4mm]
 }{%
@@ -205,11 +199,9 @@
   \vrule
   \quad
   \begin{minipage}[t]{0.79\linewidth}
-    \sffamily\textsc{\color{cvColor} \textbf{#2}}
-    \normalfont\footnotesize\sffamily
-    % \begin{itemize}[itemsep=0mm, leftmargin=4mm]
+    \sffamily\textsc{\color{cvColor} \textbf{#2}}\par
+    \normalfont\footnotesize\sffamily\color{cvContentColor}
 }{
-    % \end{itemize}
   \end{minipage}
   \par%
   \vspace{\baselineskip}%
@@ -230,10 +222,8 @@
   \hspace{0.02\linewidth}
   \begin{minipage}[t]{0.74\linewidth}
     \sffamily\textsc{\color{cvColor} \textbf{#2}}\par
-    % \begin{itemize}[itemsep=0mm, leftmargin=4mm]
-      \normalfont\footnotesize\sffamily
+    \normalfont\footnotesize\sffamily\color{cvContentColor}
 }{
-    % \end{itemize}
   \end{minipage}
   \par%
   \vspace{\baselineskip}%
@@ -242,163 +232,164 @@
 \setlength{\parindent}{0mm}
 
 \begin{document}
-  % \sffamily
   \cvHead
 
   \cvSection{Ausbildung}
-  \cvSubsection{Goetheschule Ilmenau Staatliches Gymnasium mit mat.-nat. Spezialklassen}
-  \begin{cvTimeItem}{Sep. 2009 - Jun. 2013}{Allgemeine Hochschulreife (1,2)}
-  \begin{cvItemize}
-    \item Besuch der mat.-nat. Spezialklassen mit sehr gutem Erfolg in den erweiterten Fächern Mathematik, Physik und Informatik
-    \item Zwei Facharbeiten in den Bereichen Compilerbau und Raytracing
-    \item Preisträgen von Mathematik- und Physikolympiaden
-    \item Besuch der Elektronik AG
-  \end{cvItemize}
-  \end{cvTimeItem}
+    \cvSubsection{Goetheschule Ilmenau Staatliches Gymnasium}
+      \begin{cvTimeItem}{Sep.~2009 - Jun.~2013}{Allgemeine Hochschulreife (1,2)}
+        \begin{cvItemize}
+          \item Besuch der mathematisch-naturwissenschaftlichen Spezialklassen
+          \item Abschluss mit sehr gutem Erfolg in den erweiterten Fächern Mathematik, Physik und Informatik
+          \item Abgabe zweier Facharbeiten in den Bereichen \cvQuote{Compilerbau} und \cvQuote{Raytracing}
+          \item Preisträger mehrerer Mathematik- und Physikolympiaden
+          \item Dreijähriger Besuch der Elektronik-AG
+        \end{cvItemize}
+      \end{cvTimeItem}
 
-  \cvSubsection{Technische Universität Ilmenau}
-  \begin{cvTimeItem}{Okt. 2011 - Sep. 2012}{Frühstudium}
-  \begin{cvItemize}
-    \item Abschluss des Moduls Experimentalphysik durch eine mündliche Prüfung (1,0)
-  \end{cvItemize}
-  \end{cvTimeItem}
+    \cvSubsection{Technische Universität Ilmenau}
+      \begin{cvTimeItem}{Okt. 2011 - Sep. 2012}{Frühstudium: Experimentalphysik (1,0)}
+      \end{cvTimeItem}
 
-  \cvSubsection{Friedrich-Schiller-Universität Jena}
-  \begin{cvTimeItem}{Okt. 2013 - Sep. 2017}{B.Sc. Physik (1,7)}
-  \begin{cvItemize}
-    % \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}7$
-    \item Abschlussarbeit mit dem Title Generierung von Irradiance Maps über das Präprozessing der diffusen Lichtverteilung einer Szene, um deren Darstellung in Echtzeit mithilfe des Raytracing-Algorithmus zu ermöglichen
-  \end{cvItemize}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{Okt. 2015 - Sep. 2018}{B.Sc. Mathematik (1,4)}
-  \begin{cvItemize}
-    % \item Erlangung des Abschlusses mit Durchschnittsnote $1{,}4$
-    \item Spezialisierung auf Theoretische Informatik
-    \item Abschlussarbeit mit dem Title Implementierung einer Finite-Elemente-Methode auf der Grafikkarte über die numerische Simulation von Lösungen der idealen Wellengleichungen auf zweidimensionalen Untermannigfaltigkeiten mithilfe der Finite-Elemente-Methode
-  \end{cvItemize}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{seit Okt.~2017}{M.Sc. Physik}
-  \begin{cvItemize}
-    \item Spezialisierung auf Quanten- und Gravitationstheorie
-    \item Abschlussarbeit mit dem Titel Design and Implementation of Pseudo Random Number Generators for Simulation in Physics
-  \end{cvItemize}
-  \end{cvTimeItem}
+    \cvSubsection{Friedrich-Schiller-Universität Jena}
+      \begin{cvTimeItem}{Okt. 2013 - Sep. 2017}{B.Sc. Physik (1,7)}
+        Abschlussarbeit \cvQuote{Generierung von Irradiance Maps} (1,3) über das Cachen der diffusen Lichtverteilung einer Szene, um deren Darstellung in Echtzeit mithilfe des Raytracing-Algorithmus zu ermöglichen
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{Okt. 2015 - Sep. 2018}{B.Sc. Mathematik (1,4)}
+        \begin{cvItemize}
+          \item Spezialisierung auf den Bereich \cvQuote{Theoretische Informatik}
+          \item Abschlussarbeit \cvQuote{Implementierung einer Finite-Elemente-Methode auf der Grafikkarte} (1,0) über die numerische Simulation von Lösungen der idealen Wellengleichung auf zweidimensionalen Untermannigfaltigkeiten
+        \end{cvItemize}
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{seit Okt.~2017}{M.Sc. Physik}
+        \begin{cvItemize}
+          \item Spezialisierung auf den Bereich \cvQuote{Quanten- und Gravitationstheorie} mit Nebenfach \cvQuote{Astronomie}
+          \item Abschlussarbeit \cvQuote{Design and Implementation of Pseudo Random Number Generators for Simulation in Physics}
+        \end{cvItemize}
+      \end{cvTimeItem}
 
   \cvSection{Fähigkeiten}
-  \cvSubsection{Sprachen}
-  \vspace{-1.8em}
-  \begin{multicols}{2}
-  \begin{cvSkillItem}{Deutsch}{Muttersprache}
-  \end{cvSkillItem}
-  \begin{cvSkillItem}{Englisch}{Fließend in Wort und Schrift}
-    Upper Intermediate
-  \end{cvSkillItem}
-  % \begin{cvSkillItem}{Französisch}{Grundkenntnisse}
-  %   Beginner
-  % \end{cvSkillItem}
-  \end{multicols}
-  \vspace{-1em}
+    \cvSubsection{Sprachen}
+      \vspace{-1.8em}
+      \begin{multicols}{2}
+        \begin{cvSkillItem}{Deutsch}{Muttersprache}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Englisch}{Fließend in Wort und Schrift}
+          Upper Intermediate
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Französisch}{Grundkenntnisse}
+          Beginner
+        \end{cvSkillItem}
+      \end{multicols}
 
-  \cvSubsection{Programmiersprachen}
-  \vspace{-1.8em}
-  \begin{multicols}{2}
-  \begin{cvSkillItem}{C/C++}{Fortgeschrittene Kenntnisse}
-    \begin{cvItemize}
-      \item Standards: C++98, C++11, C++14, C++17, C++20
-      \item Bibliotheken: Boost, Doctest, Qt, SFML, OpenGL
-      \item Parallelisierung: Threads, OpenMP, MPI, CUDA, SIMD Intrinsics
-      \item Compiler: GCC, Clang, Intel
-      \item Build Systeme: CMake, Make, qmake, Meson, build2
-      \item Support: Git, Valgrind, clang-tidy, clang-format
-    \end{cvItemize}
-  \end{cvSkillItem}
-  \begin{cvSkillItem}{CMake}{Fortgeschrittene Kenntnisse}
-    \begin{cvItemize}
-      \item Verwendung eines konsistenten modernen Standards
-    \end{cvItemize}
-  \end{cvSkillItem}
-  \begin{cvSkillItem}{Python}{Grundlegende Kenntnisse}
-    \begin{cvItemize}
-      \item Erfahrung beim Verstehen und Interagieren mit existierendem Code
-      \item Erfahrung mit C-Python-Interoperabilität
-    \end{cvItemize}
-  \end{cvSkillItem}
-  \begin{cvSkillItem}{LaTeX}{Fortgeschrittene Kenntnisse}
-    \begin{cvItemize}
-      \item Fließend beim Schreiben, Verstehen und Interagieren
-      \item Entwicklung eigener Pakete
-    \end{cvItemize}
-  \end{cvSkillItem}
-  \end{multicols}
+    \cvSubsection{Programmiersprachen}
+      \vspace{-1.8em}
+      \begin{multicols}{2}
+        \begin{cvSkillItem}{C/C++}{Fortgeschrittene Kenntnisse}
+          % Erfahrung in den folgenden Bereichen:
+          \begin{cvItemize}
+            \item Standards: C++98, C++11, C++14, C++17
+            \item Bibliotheken: Boost, Doctest, Qt, SFML, OpenGL
+            \item Concurrency: Threads, OpenMP, MPI, CUDA, SSE, AVX
+            \item Compiler: GCC, Clang, Intel C++ Compiler
+            \item Build Systeme: CMake, Make, qmake, Meson, build2
+            \item Support: Git, Valgrind, clang-tidy, clang-format
+          \end{cvItemize}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{CMake}{Fortgeschrittene Kenntnisse}
+          Verwendung eines konsistenten und modernen Standards
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Python}{Grundlegende Kenntnisse}
+          Erfahrung beim  Verstehen und Interagieren mit \\ existierendem Code
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Java}{Grundlegende Kenntnisse}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{LaTeX}{Fortgeschrittene Kenntnisse}
+          \begin{cvItemize}
+            \item Entwicklung eigener Pakete
+            \item Anpassung externer Pakete
+          \end{cvItemize}
+        \end{cvSkillItem}
+      \end{multicols}
 
-  \cvSubsection{Weitere Toolchain}
-  \vspace{-1.8em}
-  \begin{multicols}{2}
-  \begin{cvSkillItem}{DevOps}{Docker, CircleCI, Codecov}
-  \end{cvSkillItem}
-  \begin{cvSkillItem}{Betriebs\-systeme}{Linux, Windows}
-  \end{cvSkillItem}
-  \begin{cvSkillItem}{Web Entwicklung}{Jekyll, HTML}
-  \end{cvSkillItem}
-  \begin{cvSkillItem}{Grafik}{Gnuplot, Geogebra, Blender}
-  \end{cvSkillItem}
-  \end{multicols}
-
+    \cvSubsection{Betriebssysteme, DevOps, Webdesign und Weiteres}
+      \vspace{-1.8em}
+      \begin{multicols}{2}
+        \begin{cvSkillItem}{Linux}{Fortgeschrittene Kenntnisse}
+          Verwendung von Arch Linux und Ubuntu
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Windows}{Grundlegende Kenntnisse}
+          Erfahrung mit Windows 7 und Windows 10
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Docker}{Fortgeschrittene Kenntnisse}
+          % Erstellung eigener Images und Container auf DockerHub
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{CircleCI}{Fortgeschrittene Kenntnisse}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Codecov}{Grundlegende Kenntnisse}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Jekyll}{Grundlegende Kenntnisse}
+          Erstellung von Projektdokumentation für GitHub Pages
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{HTML}{Grundlegende Kenntnisse}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Gnuplot}{Fortgeschrittene Kenntnisse}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Blender}{Fortgeschrittene Kenntnisse}
+        \end{cvSkillItem}
+        \begin{cvSkillItem}{Geogebra}{Grundlegende Kenntnisse}
+        \end{cvSkillItem}
+      \end{multicols}
 
   \cvSection{Praxiserfahrung}
-  \cvSubsection{Fraunhofer ITWM Kaiserslautern}
-  \begin{cvTimeItem}{Sep. 2012}{Praktikum}
-  \begin{cvItemize}
-    \item Zweiwöchiges Praktikum in der Abteilung Competence Center High Performance Computing (CC HPC)
-    \item Implementierung einer Raytracing-Engine und LBVH
-  \end{cvItemize}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{Okt.~2013 - Jun.~2017}{Wissenschaftliche Hilfskraft}
-  \begin{cvItemize}
-    \item Arbeit in der Abteilung Competence Center High Performance Computing (CC HPC)
-    \item Erlangung von Fachkenntnis und Erfahrung in den Bereichen Programmoptimierung in C++ und C, Compilerbau, Computerhardware einschließlich Vektorprozessoren und Grafikkarten, Parallel Computing, Computergrafik einschließlich physikalisch-basiertes Rendering
-    \item Implementierung von echtzeitfähigen Raytracing-Algorithmen auf der CPU und GPU unter Verwendung von State-of-the-Art-Verfahren und professioneller Werkzeuge wie OpenGL, Qt und CUDA
-    \item Unterstützung bei der Entwicklung eines statistisch-basierten Analysewerkzeuges für seismische Daten durch Implementierung von Histogrammen, Kerndichteschätzern und Farbtabellen
-    \item Implementierung von Schnittstellen zur Verarbeitung des Wavefront OBJ Dateiformates
-    \item Aufbereitung und Nachbearbeitung diverser Szenenmodelle mithilfe von Blender
-  \end{cvItemize}
-  \end{cvTimeItem}
+    \cvSubsection{Fraunhofer ITWM Kaiserslautern: Competence Center High Performance Computing (CC HPC)}
+      \begin{cvTimeItem}{Sep.~2012}{Praktikum}
+        Implementierung einer Raytracing-Engine beschleunigt durch LBVH basierend auf dem Morton-Code
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{Okt.~2013 - Jun.~2017}{Wissenschaftliche Hilfskraft}
+        \begin{cvItemize}
+          \item Fachkenntnis und Erfahrung in den Bereichen \cvQuote{Programmoptimierung in C++ und C}, \cvQuote{Compilerbau}, \cvQuote{Computerhardware}, \cvQuote{Parallel Computing} und \cvQuote{Computergrafik}
+          \item Implementierung von echtzeitfähigen Raytracing-Algorithmen auf der CPU und GPU unter Verwendung von State-of-the-Art-Verfahren und professioneller Werkzeuge, wie OpenGL, Qt und CUDA
+          \item Unterstützung bei der Entwicklung eines statistisch-basierten Analysewerkzeuges für seismische Daten durch Implementierung von Histogrammen, Kerndichteschätzern und Farbtabellen
+          \item Implementierung von Schnittstellen zur Verarbeitung des \cvQuote{Wavefront OBJ} Dateiformates
+          \item Aufbereitung und Nachbearbeitung diverser Szenenmodelle mithilfe von Blender
+        \end{cvItemize}
+      \end{cvTimeItem}
 
-  \cvSubsection{Friedrich-Schiller-Universität Jena}
-  \begin{cvTimeItem}{Okt.~2017 - Apr.~2018}{Wissenschaftliche Hilfskraft}
-  \begin{cvItemize}
-    \item Übungsleiter und -korrekteur im Fach Mathematische Methoden der Physik I
-    \item Erstellen der Aufgabenzettel und Musterlösungen mithilfe von Latex
-    \item Entwicklung einer sich automatisch kompilierenden Latex-basierten Aufgabendatenbank für den Lehrstuhl
-  \end{cvItemize}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{Sep.~2018}{Tutor}
-  \begin{cvItemize}
-    \item zehntägiger Einführungskurs in die Programmiersprache C++ auf der Basis moderner Standards und Werkzeuge
-    \item fünftägiger Einführungskurs in LaTeX
-  \end{cvItemize}
-  \end{cvTimeItem}
+    \cvSubsection{Friedrich-Schiller-Universität Jena}
+      \begin{cvTimeItem}{Okt.~2017 - Apr.~2018}{Wissenschaftliche Hilfskraft}
+        \begin{cvItemize}
+          \item Übungsleiter im Fach \cvQuote{Mathematische Methoden der Physik I}
+          \item Erstellen der Aufgabenzettel und Musterlösungen mithilfe von Latex
+          \item Entwicklung einer sich automatisch kompilierenden Latex-basierten Aufgabendatenbank
+        \end{cvItemize}
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{Sep.~2018}{Tutor}
+        \begin{cvItemize}
+          \item Einführungskurs von über zehn Tagen in die Programmiersprache C++ auf der Basis moderner Standards und Werkzeuge
+          \item Einführungskurs von über fünf Tagen in die Erstellung wissenschaftlicher Arbeiten mithilfe von LaTeX
+        \end{cvItemize}
+      \end{cvTimeItem}
 
   \cvSection{Weitere Interessen und Aktivitäten}
-  \begin{multicols}{2}
-  \begin{cvTimeItem}{seit 2008}{Gitarre, E-Gitarre}
-    \begin{cvItemize}
-      \item Unterricht zwei- bis viermal im Monat
-      \item Diverse Soloauftritte
-    \end{cvItemize}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{Jan.~2014 - Dez.~2018}{Band Headedge: Lead-Gitarre}
-    \begin{cvItemize}
-      \item Monatliche Auftritte innerhalb und außerhalb von Jena
-      \item Sieger des Jenaer Nachwuchsbandwettbewerbes
-      \item Veröffentlichung eines eigenen Studioalbums
-    \end{cvItemize}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{Jan.~2016 - Okt.~2018}{Tanzclub Kristall Jena e.V.: Latein-Tuniertanz}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{seit Okt.~2018}{Wöchentliches C++-Meeting: Leiter}
-  \end{cvTimeItem}
-  \begin{cvTimeItem}{seit Mär.~2019}{Unisport: Kung Fu, Akrobatik}
-  \end{cvTimeItem}
-  \end{multicols}
+    \begin{multicols}{2}
+      \begin{cvTimeItem}{seit 2008}{Gitarre, E-Gitarre}
+        \begin{cvItemize}
+          \item Unterricht zwei- bis viermal im Monat
+          \item Diverse Soloauftritte
+        \end{cvItemize}
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{Jan.~2014 - Dez.~2018}{Band Headedge: Lead-Gitarre}
+        \begin{cvItemize}
+          \item Monatliche Auftritte innerhalb und außerhalb von Jena
+          \item Sieger des Jenaer Nachwuchsbandwettbewerbes
+          \item Veröffentlichung eines eigenen Studioalbums
+        \end{cvItemize}
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{Jan.~2016 - Okt.~2018}{Tanzclub Kristall Jena e.V.: Latein-Tuniertanz}
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{seit Okt.~2018}{Wöchentliches C++-Meeting: Leiter}
+      \end{cvTimeItem}
+      \begin{cvTimeItem}{seit Mär.~2019}{Unisport: Kung Fu, Akrobatik}
+      \end{cvTimeItem}
+    \end{multicols}
 \end{document}
