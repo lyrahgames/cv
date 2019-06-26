@@ -16,64 +16,128 @@
 % \usepackage[dvipsnames]{xcolor}
 \usepackage{enumitem}
 
-\fancypagestyle{cvStyle}{
-  \fancyhf{}
-  \fancyfoot[L]{\bigskip\sffamily\bfseries\color{cvColor}\footnotesize\textsc{\today}}
-  \fancyfoot[R]{\bigskip\sffamily\bfseries\color{cvColor}\footnotesize\textsc{Markus Pawellek}\quad$\cdot$\quad\textsc{Curriculum Vitae}}
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{0pt}
-}
-
-% \usepackage{fontspec}
-% \setmainfont[Ligatures=TeX]{Georgia}
-% \setsansfont[Ligatures=TeX]{Arial}
-
-\linespread{1.2}
-\pagestyle{cvStyle}
-
 \definecolor{cvColor}{rgb}{0.3, 0.3, 0.4}
 \definecolor{cvBackgroundColor}{rgb}{0.93, 0.93, 1.0}
 
+\newcommand{\cvFirstName}{Markus}
+\newcommand{\cvLastName}{Pawellek}
+\newcommand{\cvAddress}{Arvid-Harnack-Straße 12 \\ 07743 Jena \\ Deutschland}
+\newcommand{\cvBirthday}{7.~Mai~1995}
+\newcommand{\cvBirthplace}{Meiningen,~Deutschland}
+\newcommand{\cvMobile}{+49~173~7262913}
+\newcommand{\cvMail}{markuspawellek@gmail.com}
+\newcommand{\cvGitHub}{lyrahgames}
+\newcommand{\cvPhoto}{photo.png}
+
+\newcommand{\cvCV}{Curriculum~Vitae}
+\newcommand{\cvName}{\cvFirstName~\cvLastName}
+\newcommand{\cvFooterStyle}{%
+  \normalfont%
+  \sffamily%
+  \bfseries%
+  \color{cvColor}%
+  \footnotesize%
+  \scshape%
+}
+\newcommand{\cvFooterSeparator}{\quad $\cdot$ \quad}
+\newcommand{\cvHeadCVStyle}{%
+  \normalfont%
+  \footnotesize%
+  \itshape%
+  \color{cvColor}%
+}
+\newcommand{\cvHeadCVRule}{%
+  \parbox{0.3\linewidth}{\rule{\linewidth}{0.5pt}}%
+}
+\newcommand{\cvHeadNameBaseStyle}{%
+  \normalfont%
+  \sffamily%
+  \Huge%
+}
+\newcommand{\cvHeadLastNameStyle}{%
+  \color{cvColor}%
+  \bfseries%
+}
+\newcommand{\cvHeadAddressStyle}{%
+  \normalfont%
+  \small%
+  \sffamily%
+}
+\newcommand{\cvHeadContactStyle}{%
+  \normalfont%
+  \small%
+  \sffamily%
+}
+\newcommand{\cvHeadBirthStyle}{%
+  \normalfont%
+  \small%
+  \sffamily%
+  \color{cvColor}%
+  \itshape%
+  % \bfseries%
+}
+
+\fancypagestyle{cvPagestyle}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[L]{%
+    \bigskip%
+    \cvFooterStyle%
+    \today
+  }
+  \fancyfoot[R]{%
+    \bigskip%
+    \cvFooterStyle%
+    \cvName%
+    \cvFooterSeparator%
+    \cvCV%
+  }
+}
+
+
+\linespread{1.2}
+\pagestyle{cvPagestyle}
+
 \newcommand{\cvHead}{
-  \begin{minipage}[c]{0.7\textwidth}
-  \begin{center}
-    \Huge
-    Markus \textbf{\color{cvColor}Pawellek} \\[0.2em]
-    \small
-    {\color{cvColor}
-    \parbox{0.3\linewidth}{\rule{\linewidth}{0.5pt}}%
-    ~~%
-    {\normalfont\textit{Curriculum Vitae}}%
-    ~~%
-    \parbox{0.3\linewidth}{\rule{\linewidth}{0.5pt}}} \\[1em]
-    \begin{minipage}[t]{0.4\linewidth}
-      \raggedleft
-      Arvid-Harnack-Straße 12 \\
-      07743 Jena \\
-      Deutschland
-    \end{minipage}
-    \quad
-    \vrule
-    \quad
-    \begin{minipage}[t]{0.4\linewidth}
-      \parbox{1.5em}{\centering\faMobile{}} +49 173 7262913 \\
-      \parbox{1.5em}{\centering\faEnvelopeO{}} markuspawellek@gmail.com \\
-      \parbox{1.5em}{\centering\faGithub{}} lyrahgames
-    \end{minipage}\\[2.5em]
-    % \small
-    % \faHome{} Arvid-Harnack-Straße 12, 07743 Jena, Deutschland \\
-    % \faMobile{} +49 173 7262913 $\cdot$ \faEnvelopeO{} markuspawellek@gmail.com $\cdot$ \faGithub{} lyrahgames \\
-    {\color{cvColor}\textsc{Geboren am 7.~Mai~1995 in Meiningen, Deutschland}}
-  \end{center}
+  \begin{minipage}[c]{0.7\linewidth}
+    \begin{center}
+      {%
+        \cvHeadNameBaseStyle%
+        \cvFirstName~\cvHeadLastNameStyle\cvLastName%
+      } \\[0.2em]
+      {%
+        \cvHeadCVStyle%
+        \cvHeadCVRule~~\cvCV~~\cvHeadCVRule%
+      } \\[1em]
+      \begin{minipage}[c]{0.46\linewidth}
+        \raggedleft%
+        \cvHeadAddressStyle%
+        \cvAddress%
+      \end{minipage}
+      \hfill%
+      \vrule%
+      \hfill%
+      \begin{minipage}[c]{0.46\linewidth}
+        \newcommand{\iconBox}[1]{\parbox{1.5em}{\centering ##1}}%
+        \cvHeadContactStyle%
+        \iconBox{\faMobile} \cvMobile \\
+        \iconBox{\faEnvelopeO} \cvMail \\
+        \iconBox{\faGithub} \cvGitHub
+      \end{minipage}\\[2.5em]
+      {%
+        \cvHeadBirthStyle%
+        Geboren am \cvBirthday{} in \cvBirthplace%
+      }%
+    \end{center}
   \end{minipage}
-  \hfill
-  \begin{minipage}[c]{0.28\textwidth}
-    \begin{tikzpicture}%
-      \node[circle,draw=darkgray,line width=0.3mm, inner sep=1.3cm, fill overzoom image={photo.png}] () {};
+  \hfill%
+  \begin{minipage}[c]{0.28\linewidth}
+    \begin{tikzpicture}
+      \node[circle,draw=black,line width=1pt, inner sep=0.25\linewidth, fill overzoom image=\cvPhoto] () {};
     \end{tikzpicture}
   \end{minipage}
-  \par
-  \bigskip
+  \bigskip%
 }
 
 \newcommand{\cvSection}[1]{
@@ -120,7 +184,7 @@
     \textsc{\color{cvColor} \textbf{#2}}
     \footnotesize
     % \renewcommand{\item}{\newline $\bullet$ \quad}
-    \begin{itemize}[itemsep=-1mm, leftmargin=3mm]
+    \begin{itemize}[itemsep=0mm, leftmargin=3mm]
 }{
     \end{itemize}
   \end{minipage}
@@ -233,9 +297,9 @@
   \begin{cvEducationItem}{Englisch}{Fließend in Wort und Schrift}
     \item Upper Intermediate
   \end{cvEducationItem}
-  \begin{cvEducationItem}{Französisch}{Grundkenntnisse}
-    \item Beginner
-  \end{cvEducationItem}
+  % \begin{cvEducationItem}{Französisch}{Grundkenntnisse}
+  %   \item Beginner
+  % \end{cvEducationItem}
   \end{multicols}
 
   % \begin{multicols}{2}
