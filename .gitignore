@@ -1,6 +1,11 @@
 *
+
 !*.cls
 !*.tex
 !*.pdf
+
 !photo.png
+
+!README.md
+!LICENSE
 !.gitignore
