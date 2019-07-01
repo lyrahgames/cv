@@ -10,17 +10,16 @@
 \RequirePackage{extsizes}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
-\RequirePackage[top=25mm,bottom=25mm,left=25mm,right=25mm]{geometry}
+\RequirePackage[top=15mm,bottom=25mm,left=20mm,right=20mm]{geometry}
 \RequirePackage[ngerman]{babel}
-% \RequirePackage{hyphenat}
-\RequirePackage{bookman}
+% \RequirePackage{bookman}
 % \RequirePackage{times}
+\RequirePackage[light]{roboto}
 \RequirePackage{fontawesome}
 \RequirePackage{multicol}
 \RequirePackage{tikz}
 \RequirePackage[skins]{tcolorbox}
 \RequirePackage{fancyhdr}
-% \RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{enumitem}
 
 \definecolor{cvColor}{rgb}{0.25, 0.25, 0.5}
@@ -154,7 +153,7 @@
   \hfill%
   \begin{minipage}[c]{0.28\linewidth}
     \begin{tikzpicture}
-      \node[circle,draw=black,line width=1pt, inner sep=0.25\linewidth, fill overzoom image=\cvPhoto] () {};
+      \node[circle,draw=black,line width=1pt, inner sep=0.28\linewidth, fill overzoom image=\cvPhoto] () {};
     \end{tikzpicture}
   \end{minipage}
   \par
@@ -172,7 +171,7 @@
 }
 
 \newcommand{\cvSubsection}[1]{%
-  \begin{tcolorbox}[left=0pt, top=0pt, bottom=0pt, right=0pt, boxsep=5pt, arc=5pt, frame code={}, colback=cvBackgroundColor]
+  \begin{tcolorbox}[left=0pt, top=0pt, bottom=0pt, right=0pt, boxsep=3pt, arc=5pt, frame code={}, colback=cvBackgroundColor]
     \cvSubsectionStyle #1%
   \end{tcolorbox}
 }
@@ -185,14 +184,14 @@
 
 \newenvironment{cvTimeItem}[2]{
   \par
-  \begin{minipage}[c]{0.15\linewidth}
+  \begin{minipage}[t]{0.19\linewidth}
     \raggedleft
     \cvTimeStyle #1
   \end{minipage}
   \quad
   \vrule
   \quad
-  \begin{minipage}[t]{0.79\linewidth}
+  \begin{minipage}[t]{0.75\linewidth}
     \sffamily\textsc{\color{cvColor} \textbf{#2}}\par
     \normalfont\footnotesize\sffamily\color{cvContentColor}
 }{
@@ -203,7 +202,7 @@
 
 \newenvironment{cvSkillItem}[2]{
   \par
-  \begin{minipage}[c]{0.2\linewidth}
+  \begin{minipage}[t]{0.2\linewidth}
     \raggedleft
     \normalfont
     \sffamily
@@ -223,7 +222,7 @@
   \vspace{\baselineskip}%
 }
 
-\linespread{1.2}
+\linespread{1.1}
 \pagestyle{cvPagestyle}
 \setlength{\parindent}{0mm}
 
