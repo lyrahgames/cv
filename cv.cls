@@ -11,7 +11,7 @@
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[T1]{fontenc}
 \RequirePackage[top=15mm,bottom=25mm,left=20mm,right=20mm]{geometry}
-\RequirePackage[ngerman]{babel}
+\RequirePackage[english]{babel}
 % \RequirePackage{bookman}
 % \RequirePackage{times}
 \RequirePackage[light]{roboto}
@@ -146,7 +146,7 @@
       \end{minipage}\\[2.5em]
       {%
         \cvHeadBirthStyle%
-        Geboren am \cvBirthday{} in \cvBirthplace%
+        Born on \cvBirthday{} in \cvBirthplace%
       }%
     \end{center}
   \end{minipage}
@@ -212,6 +212,107 @@
   \end{minipage}
   \hspace{0.02\linewidth}
   \vrule
+  \hspace{0.02\linewidth}
+  \begin{minipage}[t]{0.74\linewidth}
+    \sffamily\textsc{\color{cvColor} \textbf{#2}}\par
+    \normalfont\footnotesize\sffamily\color{cvContentColor}
+}{
+  \end{minipage}
+  \par%
+  \vspace{\baselineskip}%
+}
+
+\newenvironment{cvLongSkillItem}[3]{
+  \par
+  \begin{minipage}[t]{0.1\linewidth}
+    \raggedleft
+    % \normalfont\sffamily\itshape
+    % #1
+    \sffamily\textsc{\color{cvColor} \textbf{#1}}
+  \end{minipage}
+  \hspace{0.02\linewidth}
+  \vrule
+  \hspace{0.02\linewidth}
+  \begin{minipage}[t]{0.76\linewidth}
+    % \sffamily\textsc{\color{cvColor} \textbf{#2}}
+    {\normalfont\sffamily\itshape #2}
+    \normalfont\footnotesize\sffamily\color{cvContentColor}
+    \hfill #3 \\[5pt]
+}{
+  \end{minipage}
+  \par%
+  \vspace{\baselineskip}%
+}
+
+\newenvironment{cvShortSkillItem}[2]{
+  \par
+  \begin{minipage}[t]{0.38\linewidth}
+    \raggedleft
+    % \normalfont
+    % \sffamily
+    % % \small
+    % \itshape
+    % #1
+    \sffamily\textsc{\color{cvColor} \textbf{#1}}
+  \end{minipage}
+  \hspace{0.02\linewidth}
+  \vrule
+  \hspace{0.02\linewidth}
+  \begin{minipage}[t]{0.60\linewidth}
+    % \sffamily\textsc{\color{cvColor} \textbf{#2}}
+    \normalfont
+    \sffamily
+    % \small
+    \itshape
+    #2
+    \par
+    \normalfont\footnotesize\sffamily\color{cvContentColor}
+}{
+  \end{minipage}
+  \par%
+  \vspace{\baselineskip}%
+}
+
+\newenvironment{cvSkillGroup}[2]{
+  \par
+  \begin{minipage}[c]{0.3\linewidth}
+    \raggedleft
+    \cvTimeStyle
+    #1
+  \end{minipage}
+  \hspace{0.02\linewidth}
+  \vrule
+  \hspace{0.02\linewidth}
+  \begin{minipage}[c]{0.6\linewidth}
+    % \sffamily\textsc{\color{cvColor} \textbf{#2}}\par
+    % {%
+      % \raggedleft
+    %   \normalfont
+    %   \sffamily
+    %   \itshape
+    %   #2
+    % }%
+    % \normalfont\footnotesize\sffamily\color{cvContentColor}
+    \sffamily\textsc{\color{cvColor} \textbf{#2}}
+    % \normalfont\sffamily\color{cvColor}\bfseries\scshape
+}{
+  \end{minipage}
+  \par%
+  \vspace{\baselineskip}%
+}
+
+\newenvironment{cvSkillText}[2]{
+  \par
+  \begin{minipage}[t]{0.2\linewidth}
+    \raggedleft
+    \normalfont
+    \sffamily
+    % \small
+    \itshape
+    #1
+  \end{minipage}
+  \hspace{0.02\linewidth}
+  % \vrule
   \hspace{0.02\linewidth}
   \begin{minipage}[t]{0.74\linewidth}
     \sffamily\textsc{\color{cvColor} \textbf{#2}}\par
