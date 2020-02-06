@@ -1,0 +1,107 @@
+\documentclass[ 10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{microtype}
+\usepackage[a4paper,left=40mm,right=40mm,top=35mm,bottom=45mm]{geometry}
+\usepackage[english]{babel}
+\usepackage{times}
+\usepackage[light]{roboto}
+\usepackage{fontawesome}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage[skins]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+
+\linespread{1.25}
+
+\definecolor{cvColor}{rgb}{0.25, 0.25, 0.5}
+\definecolor{cvBackgroundColor}{rgb}{0.95, 0.95, 0.99}
+\definecolor{cvFooterColor}{rgb}{0.4, 0.4, 0.4}
+\definecolor{cvContentColor}{rgb}{0.3, 0.3, 0.3}
+\definecolor{cvSubsectionColor}{rgb}{0.15, 0.15, 0.15}
+\newcommand{\cvCV}{Personal~Statement}
+\newcommand{\cvName}{Markus~Pawellek}
+\newcommand{\cvFooterStyle}{%
+  \normalfont%
+  \sffamily%
+  \bfseries%
+  \color{cvFooterColor}%
+  \footnotesize%
+  \scshape%
+}
+\newcommand{\cvFooterSeparator}{\quad $\cdot$ \quad}
+\fancypagestyle{cvPagestyle}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+  \fancyfoot[L]{%
+    \bigskip%
+    \cvFooterStyle%
+    \today
+  }
+  \fancyfoot[R]{%
+    \bigskip%
+    \cvFooterStyle%
+    \cvName%
+    \cvFooterSeparator%
+    \cvCV%
+  }
+}
+
+\begin{document}
+\sffamily
+\pagestyle{cvPagestyle}
+  % \section*{Personal Statement}
+  \smallskip%
+  {%
+    \normalfont%
+    \Large%
+    \color{cvColor}%
+    \bfseries%
+    \sffamily%
+    \noindent%
+    Personal Statement%
+  }\\[-0.5em]
+  \rule{\linewidth}{0.8pt}%
+  \par%
+  \smallskip%
+  \begin{tcolorbox}[left=0pt, top=0pt, bottom=0pt, right=0pt, boxsep=3pt, arc=5pt, frame code={}, colback=cvBackgroundColor]
+    \normalfont%
+    \sffamily%
+    \itshape%
+    \bfseries%
+    \color{cvSubsectionColor}%
+    \hfill C++Now 2020 Student/Volunteer Application%
+  \end{tcolorbox}
+  \medskip
+
+  % Why am I interested in programming?
+  \noindent
+  My first encounter with source code in a computer has been in primary school where I was helping my mother to design a homepage for her work.
+  At this time, I also had a natural interest in electronic circuits, physics, and computer games.
+  As a result, I wanted to create and host my own website.
+  Early after the completion of my own web page based on HTML, JavaScript, and CSS, I started to create first simple games in a programming language, called BlitzBasic.
+  Due to the fact that no one in my family was able to help me, it took me until high school before I started to use C and C++ for programming more sophisticated projects, like compiler construction and ray tracing.
+  Because of my interests for both mathematics and physics, graphics programming gave me the basics and abilities to visualize results of physical problems.
+  Besides mathematical proofs and physical experiments, computational simulations are an alternative to get a deeper understanding of theoretical models and their connection to reality.
+  Of course, developing new code and watching its output as an animation is fun and keeps you going on with your work.
+
+  % Why am I a good fit for this conference?
+  Now I have several years of experience with C++ and mostly had to learn its usage the hard way.
+  C++ is not easy but it is one of the most used programming languages exhibiting an extreme potential in various directions, like program optimization and high-level abstraction mechanisms, at the same time.
+  From my point as a mathematician, it is fascinating to design libraries whose interfaces and implementations mimic the behavior of mathematical syntax and semantics.
+  From my point as a physicist on the other hand, it is a pleasant experience to put high-performance code inside those abstract structures.
+  As a consequence, I am teaching C++ to other students to simplify the beginning, to demonstrate some beauty behind the complex shapes, and to present further developments of the language itself.
+  Of course, teaching C++ to others improves my own programming skills as well and helps me to write better code for real projects.
+  But it is essential to experience external inspiration and to receive evaluations for becoming better at coding.
+  % To more efficiently increase skills and teaching, I am reading and watching a lot about and around C++ newest developments.
+  Especially, videos from presentations of former C++Now conferences have been a good starting point.
+  Attending the C++Now 2020 conference would give me the possibility to further strengthen my teaching abilities and deepen my knowledge of the new language standard by visiting presentations, asking questions, and having discussions in real life.
+
+  % What makes me individual?
+  Owing to my educational history, I have a great understanding of mathematics, physics and informatics at once and I am able to combine my knowledge of these different subjects to solve complex problems from different perspectives.
+  By self-studying math, physics, and C++ as well as teaching it to other students, I have obtained a keen perception.
+  Additionally, I am extremely ambitious concerning my interests not giving up even if it would be simpler.
+  So all in all, I hope to hear from you.
+\end{document}
