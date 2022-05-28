@@ -40,7 +40,7 @@
 }
 \newcommand{\cvFooterSeparator}{\quad $\cdot$ \quad}
 \newcommand{\cvHeadCVStyle}{%
-  % \normalfont%
+  \normalfont%
   \footnotesize%
   \itshape%
   \color{cvColor}%
