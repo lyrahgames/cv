@@ -118,6 +118,42 @@
 
 \newcommand{\cvQuote}[1]{\guillemotright{}#1\guillemotleft}
 
+\newcommand{\cvHeadNoImage}{
+  \begin{minipage}[c]{\linewidth}
+    \begin{center}
+      {%
+        \cvHeadNameBaseStyle%
+        \cvFirstName~\cvHeadLastNameStyle\cvLastName%
+      } \\[0.2em]
+      {%
+        \cvHeadCVStyle%
+        \cvHeadCVRule~~\cvCV~~\cvHeadCVRule%
+      } \\[1em]
+      \begin{minipage}[c]{0.46\linewidth}
+        \raggedleft%
+        \cvHeadAddressStyle%
+        \cvAddress%
+      \end{minipage}
+      \hfill%
+      \vrule%
+      \hfill%
+      \begin{minipage}[c]{0.46\linewidth}
+        \newcommand{\iconBox}[1]{\parbox{1.5em}{\centering ##1}}%
+        \cvHeadContactStyle%
+        \iconBox{\faMobile} \cvMobile \\
+        \iconBox{\faEnvelopeO} \cvMail \\
+        \iconBox{\faGithub} \cvGitHub
+      \end{minipage}\\[2.5em]
+      {%
+        \cvHeadBirthStyle%
+        Born on \cvBirthday{} in \cvBirthplace%
+      }%
+    \end{center}
+  \end{minipage}
+  \par
+  \bigskip%
+}
+
 \newcommand{\cvHead}{
   \begin{minipage}[c]{0.7\linewidth}
     \begin{center}
